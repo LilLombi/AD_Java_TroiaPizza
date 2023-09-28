@@ -10,4 +10,10 @@ package com.mycompany.troiapizza;
  */
 public class Cliente {
     
+    private int id;
+    private String nombre;
+    private String apellidos;
+    private String dni;
+    private int puntos;
+    
 }

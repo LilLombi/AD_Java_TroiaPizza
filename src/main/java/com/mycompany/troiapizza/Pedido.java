@@ -10,4 +10,9 @@ package com.mycompany.troiapizza;
  */
 public class Pedido {
     
+    private int id;
+    private int idCliente;
+    private int[] idPizzas;
+    private String fecha;
+    private double total;
 }
