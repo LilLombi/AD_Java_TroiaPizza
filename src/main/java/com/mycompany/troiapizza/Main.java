@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.pruebagit3;
+package com.mycompany.troiapizza;
 
 /**
  *
  * @author danic
  */
-public class PruebaGit3 {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("CHUCHA, ME GOLPEARON EN LOS MONDONGOS");
