@@ -15,5 +15,14 @@ public class Cliente {
     private String apellidos;
     private String dni;
     private int puntos;
+
+    public Cliente(int id, String nombre, String apellidos, String dni, int puntos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.puntos = puntos;
+    }
+    
     
 }
