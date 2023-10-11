@@ -1,7 +1,10 @@
 package com.mycompany.troiapizza;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -29,29 +32,34 @@ public class LecSecuencial {
         this.fichLector = fichLector;
     }
 
-    public Set<Pizza> leerTexto() {
-        Set<Pizza> pizzas = new HashSet<>();
-
+    public List<Pizza> leerTexto() {
+        List<Pizza> pizzas = new ArrayList<>();
+        Properties properties = new Properties();
+            //FileInputStream inputStream = new FileInputStream("pizzasApp.properties");
+            //properties.load(inputStream);
+        int id;
+        String nombre, ingrediente;
+        boolean familiar;
+        double precio;
+        Set<Ingrediente> ingredientes =null;
+        
         try {
-            BufferedReader fbr = new BufferedReader(new FileReader(file));
+            
+            BufferedReader fbr = new BufferedReader(new FileReader(properties.getProperty("path.pizza")));
             String linea;
             while ((linea = fbr.readLine()) != null) {
-                for (int i = 0; i == 5; i++) {
-                    int id = Integer.parseInt(linea);
-                    String nombre = fbr.readLine();
-                    Set<Ingrediente> ingredientes = new HashSet<>();
-                    String ingrediente;
+                String[] datos = linea.split(",");
+                id = Integer.parseInt(datos[0]);
+                nombre = datos[1];
+                familiar = Boolean.parseBoolean(datos[2]);
+                precio = Double.parseDouble(datos[3]);
+                ingredientes = new HashSet<>();
+                for (int i = 4; i < datos.length; i++) {
+                    ingredientes.add(Ingrediente.valueOf(datos[i]));
                     
-                    boolean familiar = Boolean.parseBoolean(ingrediente);
-                    double precio = Double.parseDouble(fbr.readLine());
                 }
 
-                Pizza pizza = new Pizza();
-                pizza.setId(id);
-                pizza.setNombre(nombre);
-                pizza.setIngredientes(ingredientes);
-                pizza.setFamiliar(familiar);
-                pizza.setPrecio(precio);
+                Pizza pizza = new Pizza(id, nombre, ingredientes, familiar, precio);
 
                 pizzas.add(pizza);
             }
