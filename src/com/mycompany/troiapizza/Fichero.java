@@ -10,4 +10,20 @@ package com.mycompany.troiapizza;
  */
 public class Fichero {
     
+    
+    public void crearFichero(){
+        
+    }
+    
+    public void moverFichero(){
+        
+    }
+    
+    public void copiarFichero(){
+        
+    }
+    
+    public void borrarFichero(){
+        
+    }
 }
