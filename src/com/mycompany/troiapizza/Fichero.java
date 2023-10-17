@@ -42,7 +42,7 @@ public class Fichero {
         System.out.println("Indique la nueva ruta en la que desea establecer el fichero " + fich.getName());
         nruta = read.next();
         File dest = new File(nruta);
-        FileUtils.copyFile(fich.getAbsoluteFile(), dest);
+        //FileUtils.copyFile(fich.getAbsoluteFile(), dest);
         
     }
     

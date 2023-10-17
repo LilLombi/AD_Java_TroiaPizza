@@ -69,6 +69,7 @@ public class LecSecuencial {
         } catch (IOException io) {
             System.out.println("Error de E/S ");
         }
+        return pizzas;
     }
 
     public void leerBinario() {
