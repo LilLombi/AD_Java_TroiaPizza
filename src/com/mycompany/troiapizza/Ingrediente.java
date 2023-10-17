@@ -10,11 +10,11 @@ package com.mycompany.troiapizza;
  */
 public enum Ingrediente {
      
-    SBBQ("Salsa BBQ", 01), SBOU("Salsa Bourbon", 02), STOM("Salsa de tomate", 03), SCREM("Salsa crema", 04),
-    CYRK("Jamón York", 11), CBCN("Bacon", 12), CPPK("Pulled Pork", 13), CPPP("Pepperoni", 14), CNCH("Anchoas", 15), CATN("Atún", 16),
-    VCHM("Champiñones", 21), VACT("Aceitunas", 22), VCEB("Cebolla", 23), VCCR("Cebolla caramelizada", 24), VTOM("Tomate", 25),
-        VPIV("Pimiento verde", 26), VPIR("Pimiento rojo", 27), VPNA("Piña", 28), VMIZ("Maiz", 29),
-    QPAR("Queso parmesano", 31), QMZZ("Queso mozzarela", 32), QCDD("Queso cheddar", 33), QAZL("Queso azul", 34), QEDM("Queso edam", 35);
+    SBBQ("Salsa BBQ", 001), SBOU("Salsa Bourbon", 002), STOM("Salsa de tomate", 003), SCREM("Salsa crema", 004),
+    CYRK("Jamón York", 101), CBCN("Bacon", 102), CPPK("Pulled Pork", 103), CPPP("Pepperoni", 104), CNCH("Anchoas", 105), CATN("Atún", 106),
+    VCHM("Champiñones", 201), VACT("Aceitunas", 202), VCEB("Cebolla", 203), VCCR("Cebolla caramelizada", 204), VTOM("Tomate", 205),
+        VPIV("Pimiento verde", 206), VPIR("Pimiento rojo", 207), VPNA("Piña", 208), VMIZ("Maiz", 209),
+    QPAR("Queso parmesano", 301), QMZZ("Queso mozzarela", 302), QCDD("Queso cheddar", 303), QAZL("Queso azul", 304), QEDM("Queso edam", 305);
     
     
     public final String label;
@@ -24,6 +24,12 @@ public enum Ingrediente {
         this.label = label;
         this.pos = pos;
     }
+
+    @Override
+    public String toString() {
+        return label;
+    }
+    
     
     
 }
