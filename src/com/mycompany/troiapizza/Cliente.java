@@ -14,15 +14,31 @@ public class Cliente {
     private String nombre;
     private String apellidos;
     private String dni;
+    private String password;
     private int puntos;
+    private static int contaCliente = 0;
 
-    public Cliente(int id, String nombre, String apellidos, String dni, int puntos) {
+    public Cliente(int id, String nombre, String apellidos, String dni, String password, int puntos) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.password = password;
         this.puntos = puntos;
+        contaCliente++;
     }
+    
+    public Cliente(String nombre, String apellidos, String dni, String password) {
+        this.id = contaCliente;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.password = password;
+        this.puntos = 0;
+        contaCliente++;
+    }
+    
+    
     
     public void hacerPedido(){
         
