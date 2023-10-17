@@ -35,16 +35,16 @@ public class LecSecuencial {
     public List<Pizza> leerTexto() {
         List<Pizza> pizzas = new ArrayList<>();
         Properties properties = new Properties();
-            //FileInputStream inputStream = new FileInputStream("pizzasApp.properties");
-            //properties.load(inputStream);
+        //FileInputStream inputStream = new FileInputStream("pizzasApp.properties");
+        //properties.load(inputStream);
         int id;
         String nombre, ingrediente;
         boolean familiar;
         double precio;
-        Set<Ingrediente> ingredientes =null;
-        
+        Set<Ingrediente> ingredientes = null;
+
         try {
-            
+
             BufferedReader fbr = new BufferedReader(new FileReader(properties.getProperty("path.pizza")));
             String linea;
             while ((linea = fbr.readLine()) != null) {
@@ -56,7 +56,7 @@ public class LecSecuencial {
                 ingredientes = new HashSet<>();
                 for (int i = 4; i < datos.length; i++) {
                     ingredientes.add(Ingrediente.valueOf(datos[i]));
-                    
+
                 }
 
                 Pizza pizza = new Pizza(id, nombre, ingredientes, familiar, precio);
@@ -69,14 +69,11 @@ public class LecSecuencial {
         } catch (IOException io) {
             System.out.println("Error de E/S ");
         }
+
+        return pizzas;
     }
 
     public void leerBinario() {
-        /**
-         * try { FileOutputStream fos = new FileOutputStream(fichero, true); }
-         * catch (FileNotFoundException fn) { System.out.println("No se
-         * encuentra el fichero en la ruta indicada"); } catch (IOException io)
-         * { System.out.println("Error de E/S "); }*
-         */
+        
     }
 }

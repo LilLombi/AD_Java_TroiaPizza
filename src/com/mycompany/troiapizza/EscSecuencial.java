@@ -4,9 +4,12 @@
  */
 package com.mycompany.troiapizza;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  *
@@ -14,25 +17,36 @@ import java.io.ObjectOutputStream;
  */
 public class EscSecuencial {
     
-    public static void escribirObjetos(String nombreArchivo, Object... objetos) {
-        try {
-            // Crear un FileOutputStream para escribir en el archivo
-            FileOutputStream fileOutputStream = new FileOutputStream(nombreArchivo);
-
-            // Crear un ObjectOutputStream para escribir objetos en el archivo
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-            // Escribir cada objeto en el archivo
-            for (Object objeto : objetos) {
-                objectOutputStream.writeObject(objeto);
+    public static void escribirClientes(String file, List<Cliente> clientes) {
+       try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            for (Cliente c : clientes) {
+                String linea = c.getNombre() + "," + c.getApellidos() + "," + c.getDni() + "," + c.getId() + "\n";
+                writer.write(linea);
             }
-
-            // Cerrar el ObjectOutputStream (esto también cierra el FileOutputStream)
-            objectOutputStream.close();
-
-            System.out.println("Los objetos se han escrito en el archivo correctamente.");
         } catch (IOException e) {
-            System.err.println("Error al escribir objetos en el archivo: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public static void escribirPizza(String pizzasfile, List<Pizza> pizzas) {
+       try (BufferedWriter writer = new BufferedWriter(new FileWriter(pizzasfile))) {
+            for (Pizza p : pizzas) {
+                String linea = p.getId() + "," + p.getIngredientes() + "," + p.getPrecio() + "," + p.isFamiliar() + "," + p.getNombre() + "\n";
+                writer.write(linea);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void escribirPedido(String pedidosfile, List<Pedido> pedidos) {
+       try (BufferedWriter writer = new BufferedWriter(new FileWriter(pedidosfile))) {
+            for (Pedido p2 : pedidos) {
+                String linea = p2.getId() + "," + p2.getIdCliente() + "," + p2.getTotal() + "," + p2.getFecha() + "\n";
+                writer.write(linea);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
