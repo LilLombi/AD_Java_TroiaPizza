@@ -5,6 +5,8 @@
 package com.mycompany.troiapizza;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,15 +19,26 @@ import java.util.List;
  */
 public class EscSecuencial {
     
-    public static void escribirClientes(String file, List<Cliente> clientes) {
-       try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            for (Cliente c : clientes) {
-                String linea = c.getNombre() + "," + c.getApellidos() + "," + c.getDni() + "," + c.getId() + "\n";
-                writer.write(linea);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+//    public static void escribirClientes(String file, List<Cliente> clientes) {
+//       try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+//            for (Cliente c : clientes) {
+//                String linea = c.getNombre() + "," + c.getApellidos() + "," + c.getDni() + "," + c.getId() + "\n";
+//                writer.write(linea);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    private int tamMaxIdPizza = 100; 
+    
+    public static void escribirClientes(File cliente) {
+        try{
+            FileOutputStream fos = new FileOutputStream(cliente, true);
+            
+        }catch(FileNotFoundException fe){
+            fe.printStackTrace();
         }
+        
     }
     
     public static void escribirPizza(String pizzasfile, List<Pizza> pizzas) {
