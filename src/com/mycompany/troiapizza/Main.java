@@ -1,5 +1,7 @@
 package com.mycompany.troiapizza;
 
+import static com.mycompany.troiapizza.Fichero.crearFichero;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashSet;
@@ -18,10 +20,21 @@ public class Main {
     
     public static void main(String[] args) {
         Set<Ingrediente> ingGolosa = new HashSet<>();
+        String nombreArchivoPizza = myProperties.getProperty("path.pizza");
+        String nombreArchivoClientes = myProperties.getProperty("path.clientes");
+        String nombreArchivoPedidos = myProperties.getProperty("path.pedidos");
+        
+         File archivoPizza = crearFichero(nombreArchivoPizza);
+            File archivoClientes = crearFichero(nombreArchivoClientes);
+            File archivoPedidos = crearFichero(nombreArchivoPedidos);
         ingGolosa.add(Ingrediente.SBBQ);
         ingGolosa.add(Ingrediente.CBCN);
         Pizza golosa = new Pizza(01, "Golosa", ingGolosa, false, 7.99);
-        System.out.println(golosa.toString());
+        try{
+            myProperties.load(Main.class.getClassLoader().getResourceAsStream("pizzasApp.properties"));
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }
 //         try {
 //            Main.myProperties.load(new FileInputStream("pizzaApp.properties"));
 //        } catch (IOException e) {
